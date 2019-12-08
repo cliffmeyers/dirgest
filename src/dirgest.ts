@@ -1,8 +1,8 @@
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
 // Copyright 2019 Cliff Meyers <cliff.meyers@gmail> All rights reserved.
 
-import * as crypto from 'crypto';
-import * as fs from 'fs';
+import crypto from 'crypto';
+import fs from 'fs';
 // import * as path from 'path';
 
 export interface DirHash {
@@ -43,7 +43,11 @@ function _summarize(method: string, hashes: any) {
   return obj;
 }
 
-export function dirgest(root: string, method: string, callback: Callback, filter?: Filter) {
+export function makeDirgest(fileSystem: typeof fs) {
+  return (root: string, method: string, callback: Callback, filter?: Filter) => dirgest(fileSystem, root, method, callback, filter);
+};
+
+export function dirgest(fileSystem: typeof fs, root: string, method: string, callback: Callback, filter?: Filter) {
   if (!root || typeof(root) !== 'string') {
     throw new TypeError('root is required (string)');
   }
@@ -65,7 +69,7 @@ export function dirgest(root: string, method: string, callback: Callback, filter
 
   const hashes: any = {};
 
-  fs.readdir(root, function(err, files) {
+  fileSystem.readdir(root, function(err, files) {
     if (err) return callback(err);
 
     if (files.length === 0) {
@@ -75,7 +79,7 @@ export function dirgest(root: string, method: string, callback: Callback, filter
     let hashed = 0;
     files.forEach(function(f) {
       const currentPath = root + '/' + f;
-      fs.stat(currentPath, function(errStat, stats) {
+      fileSystem.stat(currentPath, function(errStat, stats) {
         if (errStat) return callback(errStat);
 
         // TODO: get proper relative path from root
@@ -87,7 +91,7 @@ export function dirgest(root: string, method: string, callback: Callback, filter
         */
 
         if (stats.isDirectory()) {
-          return dirgest(currentPath, method, function(errDirgest, hash) {
+          return dirgest(fileSystem, currentPath, method, function(errDirgest, hash) {
             if (errDirgest) return hash;
 
             hashes[f] = hash;
@@ -96,7 +100,7 @@ export function dirgest(root: string, method: string, callback: Callback, filter
             }
           });
         } else if (stats.isFile()) {
-          fs.readFile(currentPath, 'utf8', function(errRead, data) {
+          fileSystem.readFile(currentPath, 'utf8', function(errRead, data) {
             if (errRead) return callback(errRead);
 
             const hash = crypto.createHash(method);
