@@ -1,6 +1,6 @@
 # dirgest
 
-TODO
+Creates a directory digest.
 
 ## Running unit tests
 
