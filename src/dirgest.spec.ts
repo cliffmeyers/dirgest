@@ -11,8 +11,8 @@ describe('dirgest', () => {
         };
         vol.fromJSON(mockfs);
 
-        const dirgest = new Dirgest(vol as any);
-        dirgest.dirgest('.', 'sha1', (err, hashes) => {
+        const dirgest = new Dirgest('sha1', vol as any);
+        dirgest.dirgest('.', (err, hashes) => {
             console.log('error!', err)
             console.log(JSON.stringify(hashes, null, 2));
             done();
