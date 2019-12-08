@@ -3,7 +3,12 @@ import { vol } from 'memfs';
 
 import { Dirgest } from './dirgest';
 
-describe('dirgest', () => {
+describe('Dirgest', () => {
+    describe('constructor', () => {
+        it('should throw on invalid hash method', () => {
+            expect(() => new Dirgest('bogus')).toThrow(/unsupported method/);
+        });
+    });
     it('should work', (done) => {
         const mockfs = {
             'a.js': 'foo',
