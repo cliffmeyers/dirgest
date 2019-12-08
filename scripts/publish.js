@@ -74,10 +74,10 @@ async function publish() {
 
 function getBranch() {
     console.log('git branch...');
-    let branch = run(`git branch --no-color`).toString().trim();
+    let branch = run(`git rev-parse --abbrev-ref HEAD`).toString().trim();
 
-    if (branch.slice(0, 2) === '* ') {
-        return branch.slice(2);
+    if (!!branch) {
+        return branch;
     }
     
     exit(1, `could not get clean branch name, was '${branch}'; aborting`);
