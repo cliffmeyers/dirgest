@@ -9,7 +9,7 @@
     "test": "npx jest"
   },
   "bin": {
-    "dirgest": "./dist/cli.js"
+    "dirgest": "./lib/cli.js"
   },
   "author": "Cliff Meyers",
   "license": "MIT",
