@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "DirHash": {
+            "properties": {
+                "files": {
+                    "additionalProperties": {
+                        "$ref": "#/definitions/DirHash"
+                    },
+                    "type": "object"
+                },
+                "hash": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "properties": {
+        "files": {
+            "additionalProperties": {
+                "$ref": "#/definitions/DirHash"
+            },
+            "type": "object"
+        },
+        "hash": {
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+
