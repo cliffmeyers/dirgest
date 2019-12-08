@@ -1,0 +1,32 @@
+{
+  "name": "dirgest",
+  "version": "0.0.1",
+  "description": "computes a directory's digest",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rimraf ./lib && tsc",
+    "test": "npx jest"
+  },
+  "bin": {
+    "dirgest": "./lib/cli.js"
+  },
+  "author": "Cliff Meyers",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "@types/jest": "24.0.23",
+    "@types/node": "12.12.14",
+    "jest": "24.9.0",
+    "memfs": "3.0.1",
+    "prettier": "1.19.1",
+    "rimraf": "3.0.0",
+    "shelljs": "0.8.3",
+    "ts-jest": "24.2.0",
+    "typescript": "3.7.3"
+  },
+  "dependencies": {}
+}
