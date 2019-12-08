@@ -1,1 +1,2 @@
-export { DirHash, dirgest } from './dirgest';
+export { DirHash } from './dir-hash';
+export { Dirgest } from './dirgest';
