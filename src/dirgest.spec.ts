@@ -1,8 +1,7 @@
-import * as path from 'path';
-
+import path from 'path';
 import { vol } from 'memfs';
 
-import { makeDirgest } from './dirgest';
+import { Dirgest } from './dirgest';
 
 describe('dirgest', () => {
     it('should work', (done) => {
@@ -12,9 +11,8 @@ describe('dirgest', () => {
         };
         vol.fromJSON(mockfs);
 
-        const dirgest = makeDirgest(vol as any);
-
-        dirgest('.', 'sha1', (err, hashes) => {
+        const dirgest = new Dirgest(vol as any);
+        dirgest.dirgest('.', 'sha1', (err, hashes) => {
             console.log('error!', err)
             console.log(JSON.stringify(hashes, null, 2));
             done();
