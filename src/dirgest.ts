@@ -17,52 +17,23 @@ interface Filter {
 
 export class Dirgest {
 
+  private _method: string;
   private _filesystem: typeof fs;
 
-  constructor(filesystem?: typeof fs) {
+  constructor(method: string = 'sha1', filesystem?: typeof fs) {
+    const hashes = crypto.getHashes();
+    if (!hashes.includes(method)) {
+      throw new Error(`unsupported method: ${method}, must be one of: ${hashes.join(' ')}`);
+    }
+    this._method = method;
     this._filesystem = filesystem || fs;
   }
-
-  _summarize(method: string, hashes: any) {
-    const keys = Object.keys(hashes);
-    keys.sort();
   
-    const obj: DirHash = {
-        files: hashes,
-        hash: '',
-    };
-    const hash = crypto.createHash(method);
-    for (let i = 0; i < keys.length; i++) {
-      if (typeof(hashes[keys[i]]) === 'string') {
-        hash.update(hashes[keys[i]]);
-      } else if (typeof(hashes[keys[i]]) === 'object') {
-        hash.update(hashes[keys[i]].hash);
-      } else {
-        console.error('Unknown type found in hash: ' + typeof(hashes[keys[i]]));
-      }
-    }
-  
-    obj.hash = hash.digest('hex');
-    return obj;
-  }
-  
-  dirgest(root: string, method: string, callback: Callback, filter?: Filter) {
+  dirgest(root: string, callback: Callback, filter?: Filter) {
     if (!root || typeof(root) !== 'string') {
       throw new TypeError('root is required (string)');
     }
-    if (method) {
-      if (typeof(method) === 'string') {
-        // NO-OP
-      } else if (typeof(method) === 'function') {
-        callback = method;
-        method = 'md5';
-      } else {
-        throw new TypeError('hash must be a string');
-      }
-    } else {
-      throw new TypeError('callback is required (function)');
-    }
-    if (!callback) {
+    if (!callback || typeof(callback) !== 'function') {
       throw new TypeError('callback is required (function)');
     }
   
@@ -90,35 +61,58 @@ export class Dirgest {
           */
   
           if (stats.isDirectory()) {
-            return this.dirgest(currentPath, method, (errDirgest, hash) => {
+            return this.dirgest(currentPath, (errDirgest, hash) => {
               if (errDirgest) return hash;
   
               hashes[f] = hash;
               if (++hashed >= files.length) {
-                return callback(undefined, this._summarize(method, hashes));
+                return callback(undefined, this._summarize(hashes));
               }
             });
           } else if (stats.isFile()) {
             this._filesystem.readFile(currentPath, 'utf8', (errRead, data) => {
               if (errRead) return callback(errRead);
   
-              const hash = crypto.createHash(method);
+              const hash = crypto.createHash(this._method);
               hash.update(data);
               hashes[f] = hash.digest('hex');
   
               if (++hashed >= files.length) {
-                return callback(undefined, this._summarize(method, hashes));
+                return callback(undefined, this._summarize(hashes));
               }
             });
           } else {
             console.error('Skipping hash of %s', f);
             if (++hashed > files.length) {
-              return callback(undefined, this._summarize(method, hashes));
+              return callback(undefined, this._summarize(hashes));
             }
           }
         });
       });
     });
+  }
+
+  _summarize(hashes: any) {
+    const keys = Object.keys(hashes);
+    keys.sort();
+  
+    const obj: DirHash = {
+        files: hashes,
+        hash: '',
+    };
+    const hash = crypto.createHash(this._method);
+    for (let i = 0; i < keys.length; i++) {
+      if (typeof(hashes[keys[i]]) === 'string') {
+        hash.update(hashes[keys[i]]);
+      } else if (typeof(hashes[keys[i]]) === 'object') {
+        hash.update(hashes[keys[i]].hash);
+      } else {
+        console.error('Unknown type found in hash: ' + typeof(hashes[keys[i]]));
+      }
+    }
+  
+    obj.hash = hash.digest('hex');
+    return obj;
   }
 
 }
