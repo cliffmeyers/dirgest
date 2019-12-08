@@ -1,0 +1,23 @@
+{
+  "name": "dirgest",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "24.0.23",
+    "@types/node": "12.12.14",
+    "jest": "24.9.0",
+    "prettier": "1.19.1",
+    "ts-jest": "24.2.0",
+    "typescript": "3.7.3",
+    "typescript-json-schema": "0.41.0"
+  },
+  "dependencies": {
+    "ajv": "6.10.2"
+  }
+}
