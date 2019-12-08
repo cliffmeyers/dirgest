@@ -5,12 +5,7 @@ import crypto from 'crypto';
 import fs from 'fs';
 // import * as path from 'path';
 
-export interface DirHash {
-    hash: string;
-    files: {
-      [key: string]: DirHash
-    }
-}
+import { DirHash } from './dir-hash';
 
 interface Callback {
     (err: any, dirgest?: DirHash) :void
