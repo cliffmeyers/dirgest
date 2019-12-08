@@ -2,7 +2,7 @@
   "name": "dirgest",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "rimraf ./lib && tsc",
@@ -13,6 +13,10 @@
   },
   "author": "Cliff Meyers",
   "license": "MIT",
+  "files": [
+    "lib",
+    "LICENSE"
+  ],
   "devDependencies": {
     "@types/jest": "24.0.23",
     "@types/node": "12.12.14",
