@@ -1,6 +1,6 @@
 # dirgest
 
-Creates a directory digest.
+Computes a directory's digest.
 
 ## Running unit tests
 
