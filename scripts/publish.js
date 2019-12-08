@@ -110,7 +110,10 @@ async function getNextVersion(beta = false) {
         };
     }
 
+    console.log(versions);
+
     let versionToTick = '';
+    let versionNext = '';
 
     if (beta) {
         if (!versions.latest && !versions.beta) {
@@ -130,10 +133,17 @@ async function getNextVersion(beta = false) {
             }
         }
     } else {
-        versionToTick = versionLatest;
+        if (versions.latest.includes('-beta')) {
+            const index = versions.latest.indexOf('-beta');
+            versionNext = versions.latest.slice(0, index);
+        } else {
+            versionToTick = versions.latest;
+        }        
     }
     
-    const versionNext = tickVersion(versionToTick);
+    if (!versionNext) {
+        versionNext = tickVersion(versionToTick);
+    }
 
     console.log(`current version is:  ${versionLocal}`);
     console.log(`new version will be: ${versionNext}`);
