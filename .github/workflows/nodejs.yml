@@ -19,10 +19,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: for master
       if: github.ref == 'master'
-      run: sh echo master
+      run: echo ${github.ref}
     - name: for other
       if: github.ref != 'master'
-      run: sh echo other
+      run: echo ${github.ref}
     - name: npm install, build, and test
       run: |
         npm ci
