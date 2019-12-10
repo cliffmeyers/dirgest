@@ -19,6 +19,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: debug
       run: node ./scripts/test-env.js
+    - name: git test
+      run: git rev-parse --abbrev-ref HEAD
     - name: npm install + test + build
       run: |
         npm ci
