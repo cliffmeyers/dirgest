@@ -20,7 +20,7 @@ jobs:
     - name: debug
       run: node ./scripts/test-env.js
     - name: git test
-      run: git rev-parse --abbrev-ref HEAD
+      run: git symbolic-ref --short HEAD
     - name: npm install + test + build
       run: |
         npm ci
