@@ -35,57 +35,90 @@ function exit(code, msg) {
 }
 
 async function publish() {
-    let answer = '';
+    if (checkLatestRelease()) {
+        failIfInvalidRelease();
+        startLatestRelease();
+    } else {
+        startBetaRelease();
+    }
+}
 
-    const branch = getBranch();
-    let publishBeta = false;
+function startLatestRelease() {
+    const versions = getRegistryVersions();
 
-    if (branch !== 'master') {
-        console.log(`current branch is not 'master'`);
-        answer = await prompt(`Would you like to publish a beta? `);
+    let versionNext = '';
 
-        if (answer !== 'yes') {
-            exit(0, 'aborting');
-        }
-
-        publishBeta = true;
+    if (versions.latest.includes('-beta')) {
+        const index = versions.latest.indexOf('-beta');
+        versionNext = versions.latest.slice(0, index);
+    } else {
+        versionNext = tickVersion(versions.latest);
     }
 
-    const versionNext = await getNextVersion(publishBeta);
-    answer = await prompt('Proceed with publish? ');
+    completeRelease(versionNext, 'latest', true);
+}
+
+function startBetaRelease() {
+    let answer = '';
+
+    const versions = getRegistryVersions();
+
+    if (!versions.latest && !versions.beta) {
+        versionToTick = '0.0.1-beta.0';
+    } else if (!versions.beta || versions.latest === versions.beta) {
+        versionToTick = versions.latest;
+    } else {
+        console.log(`(A) latest ${versions.latest}`);
+        console.log(`(B) beta   ${versions.beta}`)
+        let answer = await prompt(`which version do you want to tick for this beta? `);
+        if (answer === 'A') {
+            versionToTick = versions.latest;
+        } else if (answer === 'B') {
+            versionToTick = versions.beta
+        } else {
+            exit(0, 'aborting');
+        }
+    }
+
+    answer = await prompt(`Proceed with publish? type 'yes' to confirm)`);
 
     if (answer !== 'yes') {
         exit(0, 'aborting');
     }
 
-    const npmTags = publishBeta ? '--tag beta' : '';
+    const versionNext = tickVersion(versionToTick);
+    completeRelease(versionNext, 'beta');
+}
 
+function completeRelease(versionNext, npmTag, gitTag = false) {
     run(`npm run build`);
+
     preparePackage(versionNext);
-    run(`npm publish ${npmTags}`);
+    run(`npm publish --tag ${npmTag}`);
 
     run(`git commit -am "published version ${versionNext}"`);
-    run(`git tag ${versionNext}`);
     run('git push');
-    run('git push --tags');
+
+    if (gitTag) {
+        run(`git tag ${versionNext}`);
+        run('git push --tags');
+    }
 
     exit(0, 'published successfully.');
 }
 
-function getBranch() {
-    console.log('git branch...');
-    let branch = run(`git rev-parse --abbrev-ref HEAD`).toString().trim();
-
-    if (!!branch) {
-        return branch;
-    }
-    
-    exit(1, `could not get clean branch name, was '${branch}'; aborting`);
+function checkLatestRelease() {
+    return process.args.some(arg => arg === '--release-latest');
 }
 
-async function getNextVersion(beta = false) {
+function failIfInvalidRelease() {
+    if (checkLatestRelease() && process.env.BRANCH_NAME !== 'refs/heads/master') {
+        exit(1, `can't release latest from non-master branch`);
+    }
+}
+
+function getRegistryVersions() {
     const pkgInfo = readPackage();
-    const versionLocal = pkgInfo.version;
     console.log(`checking for '${pkgInfo.name}' in registry...`);
     const query = run(`npm view ${pkgInfo.name} --json`, { silent: true, continueOnErrors: true });
     const registryInfo = JSON.parse(query.toString().trim());
@@ -97,10 +130,11 @@ async function getNextVersion(beta = false) {
 
     if (query.code !== 0 && registryInfo.error.code === 'E404') {
         console.log(`package '${pkgInfo.name}' not found`);
+        return '0.0.1';
     } else if (query.code !== 0) {
         console.log('unknown error from registry');
         console.log(registryInfo)
-        exit(1, 'aborting')
+        exit(1, 'aborting');
     } else {
         const registryVersions = registryInfo && registryInfo['dist-tags'] || {};
 
@@ -110,44 +144,7 @@ async function getNextVersion(beta = false) {
         };
     }
 
-    console.log(versions);
-
-    let versionToTick = '';
-    let versionNext = '';
-
-    if (beta) {
-        if (!versions.latest && !versions.beta) {
-            versionToTick = '0.0.1-beta.0';
-        } else if (!versions.beta || versions.latest === versions.beta) {
-            versionToTick = `${versions.latest}`;
-        } else {
-            console.log(`(A) latest ${versions.latest}`);
-            console.log(`(B) beta   ${versions.beta}`)
-            let answer = await prompt(`which version do you want to tick for this beta? `);
-            if (answer === 'A') {
-                versionToTick = versions.latest;
-            } else if (answer === 'B') {
-                versionToTick = versions.beta
-            } else {
-                exit(0, 'aborting');
-            }
-        }
-    } else {
-        if (versions.latest.includes('-beta')) {
-            const index = versions.latest.indexOf('-beta');
-            versionNext = versions.latest.slice(0, index);
-        } else {
-            versionToTick = versions.latest;
-        }        
-    }
-    
-    if (!versionNext) {
-        versionNext = tickVersion(versionToTick);
-    }
-
-    console.log(`current version is:  ${versionLocal}`);
-    console.log(`new version will be: ${versionNext}`);
-    return versionNext;
+    return versions;
 }
 
 function tickVersion(version) {
