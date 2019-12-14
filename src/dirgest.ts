@@ -17,9 +17,7 @@ export class Dirgest {
   constructor(method: string = 'sha1', filesystem?: typeof fs) {
     const hashes = crypto.getHashes();
     if (!hashes.includes(method)) {
-      throw new Error(
-        `unsupported method: ${method}, must be one of: ${hashes.join(' ')}`
-      );
+      throw new Error(`unsupported method: ${method}, must be one of: ${hashes.join(' ')}`);
     }
     this._method = method;
     this._filesystem = filesystem || fs;
