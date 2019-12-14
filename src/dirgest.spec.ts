@@ -1,5 +1,4 @@
-import path from 'path';
-import { vol } from 'memfs';
+import { vol, Volume } from 'memfs';
 
 import { Dirgest } from './dirgest';
 
@@ -16,7 +15,16 @@ describe('Dirgest', () => {
         });
     });
     describe('dirgest', () => {
-        it('should generate digests for basic directory contents', (done) => {
+        it('should return empty string for empty dir', async () => {
+            const v = new Volume();
+            v.mkdirSync('/empty');
+
+            const dirgest = new Dirgest('sha1', v as any);
+            const hashes = await dirgest.dirgest('/empty');
+            expect(hashes.hash).toBe('');
+            expect(Object.keys(hashes.files).length).toBe(0);
+        });
+        it('should generate digests for basic directory contents', async () => {
             const mockfs = {
                 'a.js': 'foo',
                 'b.js': 'bar'
@@ -24,41 +32,27 @@ describe('Dirgest', () => {
             vol.fromJSON(mockfs);
 
             const dirgest = new Dirgest('sha1', vol as any);
-            dirgest.dirgest('.', (err, hashes) => {
-                expect(hashes).toBeDefined();
-                if (hashes) {
-                    expect(hashes.hash).toMatch(SHA1);
-                    expect(hashes.files).toBeTruthy();
-                    if (hashes.files) {
-                        const keys = Object.keys(hashes.files);
-                        expect(keys.length).toBe(2);
-                        expect(hashes.files[keys[0]]).toMatch(SHA1);
-                        expect(hashes.files[keys[1]]).toMatch(SHA1);
-                    }
-                }
-                done();
-            });
+            const hashes = await dirgest.dirgest('.');
+            expect(hashes.hash).toMatch(SHA1);
+            expect(hashes.files).toBeTruthy();
+            const keys = Object.keys(hashes.files);
+            expect(keys.length).toBe(2);
+            expect(hashes.files[keys[0]]).toMatch(SHA1);
+            expect(hashes.files[keys[1]]).toMatch(SHA1);
         });
-        it('generate different digest when adding empty file', (done) => {
+        it('generate different digest when adding empty file', async () => {
             let mockfs: any = {
                 'a.js': 'foo'
             };
             vol.fromJSON(mockfs);
-
-            // doesn't take long for callbacks to get ugly
             const dirgest = new Dirgest('sha1', vol as any);
-            dirgest.dirgest('.', (err, hashes) => {
-                const hash1 = hashes && hashes.hash;
-                
-                mockfs['b.js'] = '';
-                vol.fromJSON(mockfs);
-                
-                dirgest.dirgest('.', (err, hashes) => {
-                    const hash2 = hashes && hashes.hash;
-                    expect(hash1).not.toBe(hash2);
-                    done();
-                });
-            });
+            const hash1 = await dirgest.dirgest('.');
+            
+            mockfs['b.js'] = '';
+            vol.fromJSON(mockfs);
+            const hash2 = await dirgest.dirgest('.');
+            
+            expect(hash1.hash).not.toBe(hash2.hash);
         })
     });
 });
