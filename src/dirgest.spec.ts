@@ -1,5 +1,5 @@
 import path from 'path';
-import { vol } from 'memfs';
+import { vol, Volume } from 'memfs';
 
 import { Dirgest } from './dirgest';
 
@@ -16,6 +16,19 @@ describe('Dirgest', () => {
         });
     });
     describe('dirgest', () => {
+        it('should return empty string for empty dir', (done) => {
+            const v = new Volume();
+            v.mkdirSync('/empty');
+
+            const dirgest = new Dirgest('sha1', v as any);
+            dirgest.dirgest('/empty', (err, hashes) => {
+                expect(hashes?.hash).toBe('');
+                expect(hashes?.files).toBeDefined();
+                const keys = Object.keys(hashes?.files || {});
+                expect(keys.length).toBe(0);
+                done();
+            });
+        });
         it('should generate digests for basic directory contents', (done) => {
             const mockfs = {
                 'a.js': 'foo',
