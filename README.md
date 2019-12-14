@@ -32,4 +32,4 @@ const dir = new Dirgest()
 
 ## Running unit tests
 
-Run `npx jest` to execute the unit tests via [Jest](https://jestjs.io).
+Run `npm t` to execute the unit tests via [Jest](https://jestjs.io).

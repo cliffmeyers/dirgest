@@ -6,7 +6,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "rimraf ./lib && tsc",
-    "test": "rimraf ./coverage && npx jest"
+    "test": "rimraf ./coverage && jest"
   },
   "bin": {
     "dirgest": "./lib/cli.js"
