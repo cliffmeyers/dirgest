@@ -39,55 +39,44 @@ export class Dirgest {
   
     const hashes: any = {};
   
-    this._filesystem.readdir(root, (err, files) => {
-      if (err) return callback(err);
+    this._filesystem.readdir(root, { withFileTypes: true }, (err, files) => {
+      if (err) { console.log(err); return callback(err); }
   
       if (files.length === 0) {
         return callback(undefined, {hash: '', files: {}});
       }
   
       let hashed = 0;
-      files.forEach((f) => {
-        const currentPath = root + '/' + f;
-        this._filesystem.stat(currentPath, (errStat, stats) => {
-          if (errStat) return callback(errStat);
-  
-          // TODO: get proper relative path from root
-          /*
-          const isDir = stats.isDirectory();
-          console.log(root, currentPath);
-          const relativePath = path.relative(root, currentPath);
-          console.log(relativePath);
-          */
-  
-          if (stats.isDirectory()) {
-            return this.dirgest(currentPath, (errDirgest, hash) => {
-              if (errDirgest) return hash;
-  
-              hashes[f] = hash;
-              if (++hashed >= files.length) {
-                return callback(undefined, this._summarize(hashes));
-              }
-            });
-          } else if (stats.isFile()) {
-            this._filesystem.readFile(currentPath, 'utf8', (errRead, data) => {
-              if (errRead) return callback(errRead);
-  
-              const hash = crypto.createHash(this._method);
-              hash.update(data);
-              hashes[f] = hash.digest('hex');
-  
-              if (++hashed >= files.length) {
-                return callback(undefined, this._summarize(hashes));
-              }
-            });
-          } else {
-            console.error('Skipping hash of %s', f);
-            if (++hashed > files.length) {
+      files.forEach((dirent) => {
+        const { name } = dirent;
+        const currentPath = root + '/' + name;
+        if (dirent.isDirectory()) {
+          return this.dirgest(currentPath, (errDirgest, hash) => {
+            if (errDirgest) return hash;
+
+            hashes[name] = hash;
+            if (++hashed >= files.length) {
               return callback(undefined, this._summarize(hashes));
             }
+          });
+        } else if (dirent.isFile()) {
+          this._filesystem.readFile(currentPath, 'utf8', (errRead, data) => {
+            if (errRead) return callback(errRead);
+
+            const hash = crypto.createHash(this._method);
+            hash.update(data);
+            hashes[name] = hash.digest('hex');
+
+            if (++hashed >= files.length) {
+              return callback(undefined, this._summarize(hashes));
+            }
+          });
+        } else {
+          console.error('Skipping hash of %s', name);
+          if (++hashed > files.length) {
+            return callback(undefined, this._summarize(hashes));
           }
-        });
+        }
       });
     });
   }
