@@ -33,7 +33,7 @@ export class Dirgest {
 
       this._filesystem.readdir(root, { withFileTypes: true }, (err, files) => {
         if (err) {
-          reject(err);
+          return reject(err);
         }
 
         if (files.length === 0) {

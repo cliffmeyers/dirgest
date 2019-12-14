@@ -54,5 +54,12 @@ describe('Dirgest', () => {
 
       expect(hash1.hash).not.toBe(hash2.hash);
     });
+    it('should reject on invalid dir', async () => {
+      vol.fromJSON({
+        '/valid/README.md': ''
+      });
+      const dirgest = new Dirgest('sha1', vol as any);
+      await expect(dirgest.dirgest('/invalid')).rejects.toThrow();
+    });
   });
 });
