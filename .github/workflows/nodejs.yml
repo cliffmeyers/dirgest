@@ -22,6 +22,8 @@ jobs:
         npm ci
         npm run build
         npm test
-
       env:
         CI: true
+    - name: publish + release
+      run: echo hello
+
