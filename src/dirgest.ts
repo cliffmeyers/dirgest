@@ -23,6 +23,11 @@ export class Dirgest {
     this._filesystem = filesystem || fs;
   }
 
+  /**
+   * Compute a digest for the specified directory.
+   * @param root absolute filesystem path
+   * @param filter not yet implemented
+   */
   dirgest(root: string, filter?: Filter): Promise<DirHash> {
     if (!root || typeof root !== 'string') {
       throw new TypeError('root is required (string)');
