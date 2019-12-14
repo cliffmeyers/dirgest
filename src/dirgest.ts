@@ -67,7 +67,7 @@ export class Dirgest {
               }
             });
           } else {
-            console.error('Skipping hash of %s', name);
+            console.warn('Skipping hash of %s', name);
             if (++hashed > files.length) {
               resolve(this._summarize(hashes));
             }

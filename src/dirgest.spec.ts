@@ -16,10 +16,9 @@ describe('Dirgest', () => {
   });
   describe('dirgest', () => {
     it('should return empty string for empty dir', async () => {
-      const v = new Volume();
-      v.mkdirSync('/empty');
+      vol.mkdirSync('/empty');
 
-      const dirgest = new Dirgest('sha1', v as any);
+      const dirgest = new Dirgest('sha1', vol as any);
       const hashes = await dirgest.dirgest('/empty');
       expect(hashes.hash).toBe('');
       expect(Object.keys(hashes.files).length).toBe(0);
@@ -54,6 +53,15 @@ describe('Dirgest', () => {
 
       expect(hash1.hash).not.toBe(hash2.hash);
     });
+    it('should gracefully skip a symlink', async () => {
+      vol.fromJSON({
+        '/real/1.js': 'foo'
+      });
+      vol.symlinkSync('/real', '/fake');
+      const dirgest = new Dirgest('sha1', vol as any);
+      const hash = await dirgest.dirgest('/');
+      expect(Object.keys(hash.files).length).toBe(1);
+    })
     it('should reject on invalid dir', async () => {
       vol.fromJSON({
         '/valid/1.js': ''
