@@ -26,13 +26,13 @@ describe('Dirgest', () => {
     });
     it('should generate digests for basic directory contents', async () => {
       const mockfs = {
-        'a.js': 'foo',
-        'b.js': 'bar'
+        '/a/1.js': 'foo',
+        '/a/2.js': 'bar'
       };
       vol.fromJSON(mockfs);
 
       const dirgest = new Dirgest('sha1', vol as any);
-      const hashes = await dirgest.dirgest('.');
+      const hashes = await dirgest.dirgest('/a');
       expect(hashes.hash).toMatch(SHA1);
       expect(hashes.files).toBeTruthy();
       const keys = Object.keys(hashes.files);
@@ -42,21 +42,21 @@ describe('Dirgest', () => {
     });
     it('generate different digest when adding empty file', async () => {
       let mockfs: any = {
-        'a.js': 'foo'
+        '/a/1.js': 'foo'
       };
       vol.fromJSON(mockfs);
       const dirgest = new Dirgest('sha1', vol as any);
-      const hash1 = await dirgest.dirgest('.');
+      const hash1 = await dirgest.dirgest('/a');
 
-      mockfs['b.js'] = '';
+      mockfs['/a/2.js'] = '';
       vol.fromJSON(mockfs);
-      const hash2 = await dirgest.dirgest('.');
+      const hash2 = await dirgest.dirgest('/a');
 
       expect(hash1.hash).not.toBe(hash2.hash);
     });
     it('should reject on invalid dir', async () => {
       vol.fromJSON({
-        '/valid/README.md': ''
+        '/valid/1.js': ''
       });
       const dirgest = new Dirgest('sha1', vol as any);
       await expect(dirgest.dirgest('/invalid')).rejects.toThrow();
