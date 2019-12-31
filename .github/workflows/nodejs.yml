@@ -18,6 +18,7 @@ jobs:
       uses: ./.github/actions/get-pr-labels
       id: get-pr-labels
       with:
+        github-token: ${GITHUB_TOKEN}
         who-to-greet: 'Cliff'
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1

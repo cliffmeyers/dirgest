@@ -1,6 +1,9 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
+  github-token:
+    description: access token, typically $GITHUB_TOKEN
+    required: true
   who-to-greet:  # id of input
     description: 'Who to greet'
     required: true
