@@ -14,6 +14,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Hello world action step
+      uses: ./
+      id: get-pr-labels
+      with:
+        who-to-greet: 'Cliff'
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
