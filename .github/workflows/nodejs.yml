@@ -14,6 +14,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: debug
+      run: |
+        echo "$GITHUB_CONTEXT"
+        echo "$JOB_CONTEXT"
+        echo "$STEPS_CONTEXT"
+        echo "$RUNNER_CONTEXT"
+        echo "$STRATEGY_CONTEXT"
+        echo "$MATRIX_CONTEXT"
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+        JOB_CONTEXT: ${{ toJson(job) }}
+        STEPS_CONTEXT: ${{ toJson(steps) }}
+        RUNNER_CONTEXT: ${{ toJson(runner) }}
+        STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        MATRIX_CONTEXT: ${{ toJson(matrix) }}
     - name: Hello world action step
       uses: ./.github/actions/get-pr-labels
       id: get-pr-labels
@@ -43,20 +58,6 @@ jobs:
         node-version: [12.x]
 
     steps:
-    - name: testing
+    - name: fake publish
       run: |
-        echo testing
-        echo "$GITHUB_CONTEXT"
-        echo "$JOB_CONTEXT"
-        echo "$STEPS_CONTEXT"
-        echo "$RUNNER_CONTEXT"
-        echo "$STRATEGY_CONTEXT"
-        echo "$MATRIX_CONTEXT"
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-        JOB_CONTEXT: ${{ toJson(job) }}
-        STEPS_CONTEXT: ${{ toJson(steps) }}
-        RUNNER_CONTEXT: ${{ toJson(runner) }}
-        STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-        MATRIX_CONTEXT: ${{ toJson(matrix) }}
-
+        echo fake publish
