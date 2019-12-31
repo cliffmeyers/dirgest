@@ -34,172 +34,6 @@ module.exports =
 /******/ 	// the startup function
 /******/ 	function startup() {
 /******/ 		// Load entry module and return exports
-/******/ 		return __webpack_require__(429);
-/******/ 	};
-/******/
-/******/ 	// run startup
-/******/ 	return startup();
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ 87:
-/***/ (function(module) {
-
-module.exports = require("os");
-
-/***/ }),
-
-/***/ 129:
-/***/ (function(module) {
-
-module.exports = require("child_process");
-
-/***/ }),
-
-/***/ 211:
-/***/ (function(module) {
-
-module.exports = require("https");
-
-/***/ }),
-
-/***/ 357:
-/***/ (function(module) {
-
-module.exports = require("assert");
-
-/***/ }),
-
-/***/ 413:
-/***/ (function(module) {
-
-module.exports = require("stream");
-
-/***/ }),
-
-/***/ 429:
-/***/ (function(module, __unusedexports, __webpack_require__) {
-
-module.exports =
-/******/ (function(modules, runtime) { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	__webpack_require__.ab = __dirname + "/";
-/******/
-/******/ 	// the startup function
-/******/ 	function startup() {
-/******/ 		// Load entry module and return exports
-/******/ 		return __webpack_require__(429);
-/******/ 	};
-/******/
-/******/ 	// run startup
-/******/ 	return startup();
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ 87:
-/***/ (function(module) {
-
-module.exports = __webpack_require__(87);
-
-/***/ }),
-
-/***/ 129:
-/***/ (function(module) {
-
-module.exports = __webpack_require__(129);
-
-/***/ }),
-
-/***/ 211:
-/***/ (function(module) {
-
-module.exports = __webpack_require__(211);
-
-/***/ }),
-
-/***/ 357:
-/***/ (function(module) {
-
-module.exports = __webpack_require__(357);
-
-/***/ }),
-
-/***/ 413:
-/***/ (function(module) {
-
-module.exports = __webpack_require__(413);
-
-/***/ }),
-
-/***/ 429:
-/***/ (function(module, __unusedexports, __nested_webpack_require_1849__) {
-
-module.exports =
-/******/ (function(modules, runtime) { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	__webpack_require__.ab = __dirname + "/";
-/******/
-/******/ 	// the startup function
-/******/ 	function startup() {
-/******/ 		// Load entry module and return exports
 /******/ 		return __webpack_require__(104);
 /******/ 	};
 /******/
@@ -210,20 +44,20 @@ module.exports =
 /******/ ({
 
 /***/ 0:
-/***/ (function(module, __unusedexports, __nested_webpack_require_1416__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
-const Octokit = __nested_webpack_require_1416__(529);
+const Octokit = __webpack_require__(529);
 
 const CORE_PLUGINS = [
-  __nested_webpack_require_1416__(372),
-  __nested_webpack_require_1416__(19), // deprecated: remove in v17
-  __nested_webpack_require_1416__(190),
-  __nested_webpack_require_1416__(148),
-  __nested_webpack_require_1416__(248),
-  __nested_webpack_require_1416__(586),
-  __nested_webpack_require_1416__(430),
+  __webpack_require__(372),
+  __webpack_require__(19), // deprecated: remove in v17
+  __webpack_require__(190),
+  __webpack_require__(148),
+  __webpack_require__(248),
+  __webpack_require__(586),
+  __webpack_require__(430),
 
-  __nested_webpack_require_1416__(850) // deprecated: remove in v17
+  __webpack_require__(850) // deprecated: remove in v17
 ];
 
 module.exports = Octokit.plugin(CORE_PLUGINS);
@@ -232,13 +66,13 @@ module.exports = Octokit.plugin(CORE_PLUGINS);
 /***/ }),
 
 /***/ 2:
-/***/ (function(module, __unusedexports, __nested_webpack_require_1901__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 "use strict";
 
-const os = __nested_webpack_require_1901__(87);
-const macosRelease = __nested_webpack_require_1901__(118);
-const winRelease = __nested_webpack_require_1901__(49);
+const os = __webpack_require__(87);
+const macosRelease = __webpack_require__(118);
+const winRelease = __webpack_require__(49);
 
 const osName = (platform, release) => {
 	if (!platform && release) {
@@ -286,11 +120,11 @@ module.exports = osName;
 /***/ }),
 
 /***/ 8:
-/***/ (function(module, __unusedexports, __nested_webpack_require_3095__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = iterator;
 
-const normalizePaginatedListResponse = __nested_webpack_require_3095__(301);
+const normalizePaginatedListResponse = __webpack_require__(301);
 
 function iterator(octokit, options) {
   const headers = options.headers;
@@ -327,9 +161,9 @@ function iterator(octokit, options) {
 /***/ }),
 
 /***/ 9:
-/***/ (function(module, __unusedexports, __nested_webpack_require_4198__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
-var once = __nested_webpack_require_4198__(969);
+var once = __webpack_require__(969);
 
 var noop = function() {};
 
@@ -476,18 +310,18 @@ eval("require")("encoding");
 /***/ }),
 
 /***/ 19:
-/***/ (function(module, __unusedexports, __nested_webpack_require_8001__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = authenticationPlugin;
 
-const { Deprecation } = __nested_webpack_require_8001__(692);
-const once = __nested_webpack_require_8001__(969);
+const { Deprecation } = __webpack_require__(692);
+const once = __webpack_require__(969);
 
 const deprecateAuthenticate = once((log, deprecation) => log.warn(deprecation));
 
-const authenticate = __nested_webpack_require_8001__(674);
-const beforeRequest = __nested_webpack_require_8001__(471);
-const requestError = __nested_webpack_require_8001__(349);
+const authenticate = __webpack_require__(674);
+const beforeRequest = __webpack_require__(471);
+const requestError = __webpack_require__(349);
 
 function authenticationPlugin(octokit, options) {
   if (options.auth) {
@@ -514,14 +348,14 @@ function authenticationPlugin(octokit, options) {
 /***/ }),
 
 /***/ 20:
-/***/ (function(module, __unusedexports, __nested_webpack_require_9043__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 "use strict";
 
 
-const cp = __nested_webpack_require_9043__(129);
-const parse = __nested_webpack_require_9043__(568);
-const enoent = __nested_webpack_require_9043__(881);
+const cp = __webpack_require__(129);
+const parse = __webpack_require__(568);
+const enoent = __webpack_require__(881);
 
 function spawn(command, args, options) {
     // Parse the arguments
@@ -582,12 +416,12 @@ module.exports = opts => {
 /***/ }),
 
 /***/ 47:
-/***/ (function(module, __unusedexports, __nested_webpack_require_10659__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = factory;
 
-const Octokit = __nested_webpack_require_10659__(402);
-const registerPlugin = __nested_webpack_require_10659__(855);
+const Octokit = __webpack_require__(402);
+const registerPlugin = __webpack_require__(855);
 
 function factory(plugins) {
   const Api = Octokit.bind(null, plugins || []);
@@ -599,12 +433,12 @@ function factory(plugins) {
 /***/ }),
 
 /***/ 49:
-/***/ (function(module, __unusedexports, __nested_webpack_require_11016__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 "use strict";
 
-const os = __nested_webpack_require_11016__(87);
-const execa = __nested_webpack_require_11016__(955);
+const os = __webpack_require__(87);
+const execa = __webpack_require__(955);
 
 // Reference: https://www.gaijin.at/en/lstwinver.php
 const names = new Map([
@@ -653,37 +487,54 @@ module.exports = windowsRelease;
 /***/ 87:
 /***/ (function(module) {
 
-module.exports = __nested_webpack_require_1849__(87);
+module.exports = require("os");
 
 /***/ }),
 
 /***/ 104:
-/***/ (function(__unusedmodule, __unusedexports, __nested_webpack_require_12559__) {
+/***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
-const core = __nested_webpack_require_12559__(470);
-const github = __nested_webpack_require_12559__(469);
+const core = __webpack_require__(470);
+const github = __webpack_require__(469);
 
-try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
-} catch (error) {
-  core.setFailed(error.message);
+async function main() {
+  try {
+    // `who-to-greet` input defined in action metadata file
+    // const nameToGreet = core.getInput('who-to-greet');
+    // console.log(`Hello ${nameToGreet}!`);
+    // const time = (new Date()).toTimeString();
+    // core.setOutput("time", time);
+    // Get the JSON webhook payload for the event that triggered the workflow
+    // const payload = JSON.stringify(github.context.payload, undefined, 2)
+    // console.log(`The event payload: ${payload}`);
+  
+    console.log('reading token');
+    const token = core.getInput('github-token');
+
+    const octokit = new github.GitHub(token);
+    console.log('calling octokit');
+    const { data: pullRequests } = await octokit.pulls.get({
+        owner: 'cliffmeyers',
+        repo: 'dirgest'
+    });
+  
+    console.log(pullRequests);
+  
+  } catch (error) {
+    core.setFailed(error.message);
+  }
 }
+
+main();
 
 /***/ }),
 
 /***/ 118:
-/***/ (function(module, __unusedexports, __nested_webpack_require_13209__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 "use strict";
 
-const os = __nested_webpack_require_13209__(87);
+const os = __webpack_require__(87);
 
 const nameMap = new Map([
 	[19, 'Catalina'],
@@ -1624,16 +1475,16 @@ module.exports = uniq;
 /***/ 129:
 /***/ (function(module) {
 
-module.exports = __nested_webpack_require_1849__(129);
+module.exports = require("child_process");
 
 /***/ }),
 
 /***/ 143:
-/***/ (function(module, __unusedexports, __nested_webpack_require_35977__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = withAuthorizationPrefix;
 
-const atob = __nested_webpack_require_35977__(368);
+const atob = __webpack_require__(368);
 
 const REGEX_IS_BASIC_AUTH = /^[\w-]+:/;
 
@@ -1659,12 +1510,12 @@ function withAuthorizationPrefix(authorization) {
 /***/ }),
 
 /***/ 145:
-/***/ (function(module, __unusedexports, __nested_webpack_require_36586__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 "use strict";
 
-const pump = __nested_webpack_require_36586__(453);
-const bufferStream = __nested_webpack_require_36586__(966);
+const pump = __webpack_require__(453);
+const bufferStream = __webpack_require__(966);
 
 class MaxBufferError extends Error {
 	constructor() {
@@ -1717,12 +1568,12 @@ module.exports.MaxBufferError = MaxBufferError;
 /***/ }),
 
 /***/ 148:
-/***/ (function(module, __unusedexports, __nested_webpack_require_37934__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = paginatePlugin;
 
-const iterator = __nested_webpack_require_37934__(8);
-const paginate = __nested_webpack_require_37934__(807);
+const iterator = __webpack_require__(8);
+const paginate = __webpack_require__(807);
 
 function paginatePlugin(octokit) {
   octokit.paginate = paginate.bind(null, octokit);
@@ -1782,13 +1633,13 @@ module.exports = opts => {
 /***/ }),
 
 /***/ 190:
-/***/ (function(module, __unusedexports, __nested_webpack_require_39233__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = authenticationPlugin;
 
-const beforeRequest = __nested_webpack_require_39233__(863);
-const requestError = __nested_webpack_require_39233__(293);
-const validate = __nested_webpack_require_39233__(954);
+const beforeRequest = __webpack_require__(863);
+const requestError = __webpack_require__(293);
+const validate = __webpack_require__(954);
 
 function authenticationPlugin(octokit, options) {
   if (!options.auth) {
@@ -1810,12 +1661,12 @@ function authenticationPlugin(octokit, options) {
 /***/ }),
 
 /***/ 197:
-/***/ (function(module, __unusedexports, __nested_webpack_require_39812__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = isexe
 isexe.sync = sync
 
-var fs = __nested_webpack_require_39812__(747)
+var fs = __webpack_require__(747)
 
 function isexe (path, options, cb) {
   fs.stat(path, function (er, stat) {
@@ -1860,7 +1711,7 @@ function checkMode (stat, options) {
 /***/ 211:
 /***/ (function(module) {
 
-module.exports = __nested_webpack_require_1849__(211);
+module.exports = require("https");
 
 /***/ }),
 
@@ -1872,11 +1723,11 @@ module.exports = {"_from":"@octokit/rest@^16.15.0","_id":"@octokit/rest@16.36.0"
 /***/ }),
 
 /***/ 248:
-/***/ (function(module, __unusedexports, __nested_webpack_require_45489__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = octokitRegisterEndpoints;
 
-const registerEndpoints = __nested_webpack_require_45489__(899);
+const registerEndpoints = __webpack_require__(899);
 
 function octokitRegisterEndpoints(octokit) {
   octokit.registerEndpoints = registerEndpoints.bind(null, octokit);
@@ -1886,15 +1737,15 @@ function octokitRegisterEndpoints(octokit) {
 /***/ }),
 
 /***/ 260:
-/***/ (function(module, __unusedexports, __nested_webpack_require_45791__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 // Note: since nyc uses this module to output coverage, any lines
 // that are in the direct sync flow of nyc's outputCoverage are
 // ignored, since we can never get coverage for them.
-var assert = __nested_webpack_require_45791__(357)
-var signals = __nested_webpack_require_45791__(654)
+var assert = __webpack_require__(357)
+var signals = __webpack_require__(654)
 
-var EE = __nested_webpack_require_45791__(614)
+var EE = __webpack_require__(614)
 /* istanbul ignore if */
 if (typeof EE !== 'function') {
   EE = EE.EventEmitter
@@ -2050,13 +1901,13 @@ function processEmit (ev, arg) {
 /***/ }),
 
 /***/ 262:
-/***/ (function(__unusedmodule, exports, __nested_webpack_require_49804__) {
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const fs_1 = __nested_webpack_require_49804__(747);
-const os_1 = __nested_webpack_require_49804__(87);
+const fs_1 = __webpack_require__(747);
+const os_1 = __webpack_require__(87);
 class Context {
     /**
      * Hydrate the context from the environment
@@ -2103,13 +1954,13 @@ exports.Context = Context;
 /***/ }),
 
 /***/ 265:
-/***/ (function(module, __unusedexports, __nested_webpack_require_51659__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = getPage
 
-const deprecate = __nested_webpack_require_51659__(370)
-const getPageLinks = __nested_webpack_require_51659__(577)
-const HttpError = __nested_webpack_require_51659__(297)
+const deprecate = __webpack_require__(370)
+const getPageLinks = __webpack_require__(577)
+const HttpError = __webpack_require__(297)
 
 function getPage (octokit, link, which, headers) {
   deprecate(`octokit.get${which.charAt(0).toUpperCase() + which.slice(1)}Page() – You can use octokit.paginate or async iterators instead: https://github.com/octokit/rest.js#pagination.`)
@@ -3638,11 +3489,11 @@ function coerce (version) {
 /***/ }),
 
 /***/ 293:
-/***/ (function(module, __unusedexports, __nested_webpack_require_91672__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = authenticationRequestError;
 
-const { RequestError } = __nested_webpack_require_91672__(463);
+const { RequestError } = __webpack_require__(463);
 
 function authenticationRequestError(state, error, options) {
   if (!error.headers) throw error;
@@ -3706,15 +3557,15 @@ function authenticationRequestError(state, error, options) {
 /***/ }),
 
 /***/ 294:
-/***/ (function(module, __unusedexports, __nested_webpack_require_93347__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = parseOptions;
 
-const { Deprecation } = __nested_webpack_require_93347__(692);
-const { getUserAgent } = __nested_webpack_require_93347__(796);
-const once = __nested_webpack_require_93347__(969);
+const { Deprecation } = __webpack_require__(692);
+const { getUserAgent } = __webpack_require__(796);
+const once = __webpack_require__(969);
 
-const pkg = __nested_webpack_require_93347__(215);
+const pkg = __webpack_require__(215);
 
 const deprecateOptionsTimeout = once((log, deprecation) =>
   log.warn(deprecation)
@@ -3824,7 +3675,7 @@ module.exports = class HttpError extends Error {
 /***/ }),
 
 /***/ 301:
-/***/ (function(module, __unusedexports, __nested_webpack_require_96293__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 /**
  * Some “list” response that can be paginated have a different response structure
@@ -3850,8 +3701,8 @@ module.exports = class HttpError extends Error {
 
 module.exports = normalizePaginatedListResponse;
 
-const { Deprecation } = __nested_webpack_require_96293__(692);
-const once = __nested_webpack_require_96293__(969);
+const { Deprecation } = __webpack_require__(692);
+const once = __webpack_require__(969);
 
 const deprecateIncompleteResults = once((log, deprecation) =>
   log.warn(deprecation)
@@ -3976,12 +3827,12 @@ isStream.transform = function (stream) {
 /***/ }),
 
 /***/ 336:
-/***/ (function(module, __unusedexports, __nested_webpack_require_101680__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = hasLastPage
 
-const deprecate = __nested_webpack_require_101680__(370)
-const getPageLinks = __nested_webpack_require_101680__(577)
+const deprecate = __webpack_require__(370)
+const getPageLinks = __webpack_require__(577)
 
 function hasLastPage (link) {
   deprecate(`octokit.hasLastPage() – You can use octokit.paginate or async iterators instead: https://github.com/octokit/rest.js#pagination.`)
@@ -3992,16 +3843,16 @@ function hasLastPage (link) {
 /***/ }),
 
 /***/ 348:
-/***/ (function(module, __unusedexports, __nested_webpack_require_102097__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = validate;
 
-const { RequestError } = __nested_webpack_require_102097__(463);
-const get = __nested_webpack_require_102097__(854);
-const set = __nested_webpack_require_102097__(883);
+const { RequestError } = __webpack_require__(463);
+const get = __webpack_require__(854);
+const set = __webpack_require__(883);
 
 function validate(octokit, options) {
   if (!options.request.validate) {
@@ -4151,11 +4002,11 @@ function validate(octokit, options) {
 /***/ }),
 
 /***/ 349:
-/***/ (function(module, __unusedexports, __nested_webpack_require_106323__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = authenticationRequestError;
 
-const { RequestError } = __nested_webpack_require_106323__(463);
+const { RequestError } = __webpack_require__(463);
 
 function authenticationRequestError(state, error, options) {
   /* istanbul ignore next */
@@ -4215,7 +4066,7 @@ function authenticationRequestError(state, error, options) {
 /***/ 357:
 /***/ (function(module) {
 
-module.exports = __nested_webpack_require_1849__(357);
+module.exports = require("assert");
 
 /***/ }),
 
@@ -4319,7 +4170,7 @@ function octokitDebug(octokit) {
 /***/ }),
 
 /***/ 385:
-/***/ (function(__unusedmodule, exports, __nested_webpack_require_109838__) {
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
 
 "use strict";
 
@@ -4328,8 +4179,8 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var isPlainObject = _interopDefault(__nested_webpack_require_109838__(696));
-var universalUserAgent = __nested_webpack_require_109838__(796);
+var isPlainObject = _interopDefault(__webpack_require__(696));
+var universalUserAgent = __webpack_require__(796);
 
 function lowercaseKeys(object) {
   if (!object) {
@@ -4706,13 +4557,13 @@ exports.endpoint = endpoint;
 /***/ }),
 
 /***/ 389:
-/***/ (function(module, __unusedexports, __nested_webpack_require_122190__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 "use strict";
 
 
-const fs = __nested_webpack_require_122190__(747);
-const shebangCommand = __nested_webpack_require_122190__(866);
+const fs = __webpack_require__(747);
+const shebangCommand = __webpack_require__(866);
 
 function readShebang(command) {
     // Read the first 150 bytes from the file
@@ -4746,14 +4597,14 @@ module.exports = readShebang;
 /***/ }),
 
 /***/ 402:
-/***/ (function(module, __unusedexports, __nested_webpack_require_123029__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = Octokit;
 
-const { request } = __nested_webpack_require_123029__(753);
-const Hook = __nested_webpack_require_123029__(523);
+const { request } = __webpack_require__(753);
+const Hook = __webpack_require__(523);
 
-const parseClientOptions = __nested_webpack_require_123029__(294);
+const parseClientOptions = __webpack_require__(294);
 
 function Octokit(plugins, options) {
   options = options || {};
@@ -4784,18 +4635,18 @@ function Octokit(plugins, options) {
 /***/ 413:
 /***/ (function(module) {
 
-module.exports = __nested_webpack_require_1849__(413);
+module.exports = require("stream");
 
 /***/ }),
 
 /***/ 427:
-/***/ (function(module, __unusedexports, __nested_webpack_require_123840__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 "use strict";
 
 // Older verions of Node.js might not have `util.getSystemErrorName()`.
 // In that case, fall back to a deprecated internal.
-const util = __nested_webpack_require_123840__(669);
+const util = __webpack_require__(669);
 
 let uv;
 
@@ -4836,11 +4687,11 @@ function errname(uv, code) {
 /***/ }),
 
 /***/ 430:
-/***/ (function(module, __unusedexports, __nested_webpack_require_124780__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = octokitValidate;
 
-const validate = __nested_webpack_require_124780__(348);
+const validate = __webpack_require__(348);
 
 function octokitValidate(octokit) {
   octokit.hook.before("request", validate.bind(null, octokit));
@@ -4850,12 +4701,12 @@ function octokitValidate(octokit) {
 /***/ }),
 
 /***/ 431:
-/***/ (function(__unusedmodule, exports, __nested_webpack_require_125050__) {
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const os = __nested_webpack_require_125050__(87);
+const os = __webpack_require__(87);
 /**
  * Commands
  *
@@ -4923,11 +4774,11 @@ function escape(s) {
 /***/ }),
 
 /***/ 453:
-/***/ (function(module, __unusedexports, __nested_webpack_require_127274__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
-var once = __nested_webpack_require_127274__(969)
-var eos = __nested_webpack_require_127274__(9)
-var fs = __nested_webpack_require_127274__(747) // we only need fs to get the ReadStream and WriteStream prototypes
+var once = __webpack_require__(969)
+var eos = __webpack_require__(9)
+var fs = __webpack_require__(747) // we only need fs to get the ReadStream and WriteStream prototypes
 
 var noop = function () {}
 var ancient = /^v?\.0/.test(process.version)
@@ -5012,7 +4863,7 @@ module.exports = pump
 /***/ }),
 
 /***/ 454:
-/***/ (function(module, exports, __nested_webpack_require_129597__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
@@ -5021,11 +4872,11 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var Stream = _interopDefault(__nested_webpack_require_129597__(413));
-var http = _interopDefault(__nested_webpack_require_129597__(605));
-var Url = _interopDefault(__nested_webpack_require_129597__(835));
-var https = _interopDefault(__nested_webpack_require_129597__(211));
-var zlib = _interopDefault(__nested_webpack_require_129597__(761));
+var Stream = _interopDefault(__webpack_require__(413));
+var http = _interopDefault(__webpack_require__(605));
+var Url = _interopDefault(__webpack_require__(835));
+var https = _interopDefault(__webpack_require__(211));
+var zlib = _interopDefault(__webpack_require__(761));
 
 // Based on https://github.com/tmpvar/jsdom/blob/aa85b2abf07766ff7bf5c1f6daafb3726f2f2db5/lib/jsdom/living/blob.js
 
@@ -5176,7 +5027,7 @@ FetchError.prototype.name = 'FetchError';
 
 let convert;
 try {
-	convert = __nested_webpack_require_129597__(18).convert;
+	convert = __webpack_require__(18).convert;
 } catch (e) {}
 
 const INTERNALS = Symbol('Body internals');
@@ -6715,7 +6566,7 @@ module.exports.argument = escapeArgument;
 /***/ }),
 
 /***/ 463:
-/***/ (function(__unusedmodule, exports, __nested_webpack_require_172286__) {
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
 
 "use strict";
 
@@ -6724,8 +6575,8 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var deprecation = __nested_webpack_require_172286__(692);
-var once = _interopDefault(__nested_webpack_require_172286__(969));
+var deprecation = __webpack_require__(692);
+var once = _interopDefault(__webpack_require__(969));
 
 const logOnce = once(deprecation => console.warn(deprecation));
 /**
@@ -6778,7 +6629,7 @@ exports.RequestError = RequestError;
 /***/ }),
 
 /***/ 469:
-/***/ (function(__unusedmodule, exports, __nested_webpack_require_174408__) {
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
 
 "use strict";
 
@@ -6794,9 +6645,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 // Originally pulled from https://github.com/JasonEtco/actions-toolkit/blob/master/src/github.ts
-const graphql_1 = __nested_webpack_require_174408__(898);
-const rest_1 = __importDefault(__nested_webpack_require_174408__(0));
-const Context = __importStar(__nested_webpack_require_174408__(262));
+const graphql_1 = __webpack_require__(898);
+const rest_1 = __importDefault(__webpack_require__(0));
+const Context = __importStar(__webpack_require__(262));
 // We need this in order to extend Octokit
 rest_1.default.prototype = new rest_1.default();
 exports.context = new Context.Context();
@@ -6814,7 +6665,7 @@ exports.GitHub = GitHub;
 /***/ }),
 
 /***/ 470:
-/***/ (function(__unusedmodule, exports, __nested_webpack_require_175727__) {
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
 
 "use strict";
 
@@ -6828,9 +6679,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const command_1 = __nested_webpack_require_175727__(431);
-const os = __nested_webpack_require_175727__(87);
-const path = __nested_webpack_require_175727__(622);
+const command_1 = __webpack_require__(431);
+const os = __webpack_require__(87);
+const path = __webpack_require__(622);
 /**
  * The code to exit an action
  */
@@ -7016,12 +6867,12 @@ exports.getState = getState;
 /***/ }),
 
 /***/ 471:
-/***/ (function(module, __unusedexports, __nested_webpack_require_181729__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = authenticationBeforeRequest;
 
-const btoa = __nested_webpack_require_181729__(675);
-const uniq = __nested_webpack_require_181729__(126);
+const btoa = __webpack_require__(675);
+const uniq = __webpack_require__(126);
 
 function authenticationBeforeRequest(state, options) {
   if (!state.auth.type) {
@@ -7066,14 +6917,14 @@ function authenticationBeforeRequest(state, options) {
 /***/ }),
 
 /***/ 489:
-/***/ (function(module, __unusedexports, __nested_webpack_require_183031__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 "use strict";
 
 
-const path = __nested_webpack_require_183031__(622);
-const which = __nested_webpack_require_183031__(814);
-const pathKey = __nested_webpack_require_183031__(39)();
+const path = __webpack_require__(622);
+const which = __webpack_require__(814);
+const pathKey = __webpack_require__(39)();
 
 function resolveCommandAttempt(parsed, withoutPathExt) {
     const cwd = process.cwd();
@@ -7174,11 +7025,11 @@ function addHook (state, kind, name, hook) {
 /***/ }),
 
 /***/ 523:
-/***/ (function(module, __unusedexports, __nested_webpack_require_185509__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
-var register = __nested_webpack_require_185509__(363)
-var addHook = __nested_webpack_require_185509__(510)
-var removeHook = __nested_webpack_require_185509__(763)
+var register = __webpack_require__(363)
+var addHook = __webpack_require__(510)
+var removeHook = __webpack_require__(763)
 
 // bind with array of arguments: https://stackoverflow.com/a/21792913
 var bind = Function.bind
@@ -7238,9 +7089,9 @@ module.exports.Collection = Hook.Collection
 /***/ }),
 
 /***/ 529:
-/***/ (function(module, __unusedexports, __nested_webpack_require_187308__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
-const factory = __nested_webpack_require_187308__(47);
+const factory = __webpack_require__(47);
 
 module.exports = factory();
 
@@ -7248,12 +7099,12 @@ module.exports = factory();
 /***/ }),
 
 /***/ 536:
-/***/ (function(module, __unusedexports, __nested_webpack_require_187467__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = hasFirstPage
 
-const deprecate = __nested_webpack_require_187467__(370)
-const getPageLinks = __nested_webpack_require_187467__(577)
+const deprecate = __webpack_require__(370)
+const getPageLinks = __webpack_require__(577)
 
 function hasFirstPage (link) {
   deprecate(`octokit.hasFirstPage() – You can use octokit.paginate or async iterators instead: https://github.com/octokit/rest.js#pagination.`)
@@ -7264,11 +7115,11 @@ function hasFirstPage (link) {
 /***/ }),
 
 /***/ 550:
-/***/ (function(module, __unusedexports, __nested_webpack_require_187888__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = getNextPage
 
-const getPage = __nested_webpack_require_187888__(265)
+const getPage = __webpack_require__(265)
 
 function getNextPage (octokit, link, headers) {
   return getPage(octokit, link, 'next', headers)
@@ -7278,12 +7129,12 @@ function getNextPage (octokit, link, headers) {
 /***/ }),
 
 /***/ 558:
-/***/ (function(module, __unusedexports, __nested_webpack_require_188148__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = hasPreviousPage
 
-const deprecate = __nested_webpack_require_188148__(370)
-const getPageLinks = __nested_webpack_require_188148__(577)
+const deprecate = __webpack_require__(370)
+const getPageLinks = __webpack_require__(577)
 
 function hasPreviousPage (link) {
   deprecate(`octokit.hasPreviousPage() – You can use octokit.paginate or async iterators instead: https://github.com/octokit/rest.js#pagination.`)
@@ -7294,11 +7145,11 @@ function hasPreviousPage (link) {
 /***/ }),
 
 /***/ 563:
-/***/ (function(module, __unusedexports, __nested_webpack_require_188577__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = getPreviousPage
 
-const getPage = __nested_webpack_require_188577__(265)
+const getPage = __webpack_require__(265)
 
 function getPreviousPage (octokit, link, headers) {
   return getPage(octokit, link, 'prev', headers)
@@ -7308,17 +7159,17 @@ function getPreviousPage (octokit, link, headers) {
 /***/ }),
 
 /***/ 568:
-/***/ (function(module, __unusedexports, __nested_webpack_require_188845__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 "use strict";
 
 
-const path = __nested_webpack_require_188845__(622);
-const niceTry = __nested_webpack_require_188845__(948);
-const resolveCommand = __nested_webpack_require_188845__(489);
-const escape = __nested_webpack_require_188845__(462);
-const readShebang = __nested_webpack_require_188845__(389);
-const semver = __nested_webpack_require_188845__(280);
+const path = __webpack_require__(622);
+const niceTry = __webpack_require__(948);
+const resolveCommand = __webpack_require__(489);
+const escape = __webpack_require__(462);
+const readShebang = __webpack_require__(389);
+const semver = __webpack_require__(280);
 
 const isWin = process.platform === 'win32';
 const isExecutableRegExp = /\.(?:com|exe)$/i;
@@ -7463,11 +7314,11 @@ function getPageLinks (link) {
 /***/ }),
 
 /***/ 586:
-/***/ (function(module, __unusedexports, __nested_webpack_require_193808__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = octokitRestApiEndpoints;
 
-const ROUTES = __nested_webpack_require_193808__(705);
+const ROUTES = __webpack_require__(705);
 
 function octokitRestApiEndpoints(octokit) {
   // Aliasing scopes for backward compatibility
@@ -7485,24 +7336,24 @@ function octokitRestApiEndpoints(octokit) {
 /***/ 605:
 /***/ (function(module) {
 
-module.exports = __nested_webpack_require_1849__(605);
+module.exports = require("http");
 
 /***/ }),
 
 /***/ 614:
 /***/ (function(module) {
 
-module.exports = __nested_webpack_require_1849__(614);
+module.exports = require("events");
 
 /***/ }),
 
 /***/ 621:
-/***/ (function(module, __unusedexports, __nested_webpack_require_194460__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 "use strict";
 
-const path = __nested_webpack_require_194460__(622);
-const pathKey = __nested_webpack_require_194460__(39);
+const path = __webpack_require__(622);
+const pathKey = __webpack_require__(39);
 
 module.exports = opts => {
 	opts = Object.assign({
@@ -7546,16 +7397,16 @@ module.exports.env = opts => {
 /***/ 622:
 /***/ (function(module) {
 
-module.exports = __nested_webpack_require_1849__(622);
+module.exports = require("path");
 
 /***/ }),
 
 /***/ 649:
-/***/ (function(module, __unusedexports, __nested_webpack_require_195413__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = getLastPage
 
-const getPage = __nested_webpack_require_195413__(265)
+const getPage = __webpack_require__(265)
 
 function getLastPage (octokit, link, headers) {
   return getPage(octokit, link, 'last', headers)
@@ -7627,17 +7478,17 @@ if (process.platform === 'linux') {
 /***/ 669:
 /***/ (function(module) {
 
-module.exports = __nested_webpack_require_1849__(669);
+module.exports = require("util");
 
 /***/ }),
 
 /***/ 674:
-/***/ (function(module, __unusedexports, __nested_webpack_require_197103__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = authenticate;
 
-const { Deprecation } = __nested_webpack_require_197103__(692);
-const once = __nested_webpack_require_197103__(969);
+const { Deprecation } = __webpack_require__(692);
+const once = __webpack_require__(969);
 
 const deprecateAuthenticate = once((log, deprecation) => log.warn(deprecation));
 
@@ -7815,14 +7666,14 @@ module.exports = {"activity":{"checkStarringRepo":{"method":"GET","params":{"own
 /***/ }),
 
 /***/ 742:
-/***/ (function(module, __unusedexports, __nested_webpack_require_349920__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
-var fs = __nested_webpack_require_349920__(747)
+var fs = __webpack_require__(747)
 var core
 if (process.platform === 'win32' || global.TESTING_WINDOWS) {
-  core = __nested_webpack_require_349920__(818)
+  core = __webpack_require__(818)
 } else {
-  core = __nested_webpack_require_349920__(197)
+  core = __webpack_require__(197)
 }
 
 module.exports = isexe
@@ -7881,12 +7732,12 @@ function sync (path, options) {
 /***/ 747:
 /***/ (function(module) {
 
-module.exports = __nested_webpack_require_1849__(747);
+module.exports = require("fs");
 
 /***/ }),
 
 /***/ 753:
-/***/ (function(__unusedmodule, exports, __nested_webpack_require_351299__) {
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
 
 "use strict";
 
@@ -7895,11 +7746,11 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var endpoint = __nested_webpack_require_351299__(385);
-var universalUserAgent = __nested_webpack_require_351299__(796);
-var isPlainObject = _interopDefault(__nested_webpack_require_351299__(696));
-var nodeFetch = _interopDefault(__nested_webpack_require_351299__(454));
-var requestError = __nested_webpack_require_351299__(463);
+var endpoint = __webpack_require__(385);
+var universalUserAgent = __webpack_require__(796);
+var isPlainObject = _interopDefault(__webpack_require__(696));
+var nodeFetch = _interopDefault(__webpack_require__(454));
+var requestError = __webpack_require__(463);
 
 const VERSION = "5.3.1";
 
@@ -8044,7 +7895,7 @@ exports.request = request;
 /***/ 761:
 /***/ (function(module) {
 
-module.exports = __nested_webpack_require_1849__(761);
+module.exports = require("zlib");
 
 /***/ }),
 
@@ -8096,11 +7947,11 @@ module.exports = function (x) {
 /***/ }),
 
 /***/ 777:
-/***/ (function(module, __unusedexports, __nested_webpack_require_356203__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = getFirstPage
 
-const getPage = __nested_webpack_require_356203__(265)
+const getPage = __webpack_require__(265)
 
 function getFirstPage (octokit, link, headers) {
   return getPage(octokit, link, 'first', headers)
@@ -8110,7 +7961,7 @@ function getFirstPage (octokit, link, headers) {
 /***/ }),
 
 /***/ 796:
-/***/ (function(__unusedmodule, exports, __nested_webpack_require_356466__) {
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
 
 "use strict";
 
@@ -8119,7 +7970,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var osName = _interopDefault(__nested_webpack_require_356466__(2));
+var osName = _interopDefault(__webpack_require__(2));
 
 function getUserAgent() {
   try {
@@ -8140,11 +7991,11 @@ exports.getUserAgent = getUserAgent;
 /***/ }),
 
 /***/ 807:
-/***/ (function(module, __unusedexports, __nested_webpack_require_357144__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = paginate;
 
-const iterator = __nested_webpack_require_357144__(8);
+const iterator = __webpack_require__(8);
 
 function paginate(octokit, route, options, mapFn) {
   if (typeof options === "function") {
@@ -8187,7 +8038,7 @@ function gather(octokit, results, iterator, mapFn) {
 /***/ }),
 
 /***/ 814:
-/***/ (function(module, __unusedexports, __nested_webpack_require_358053__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = which
 which.sync = whichSync
@@ -8196,9 +8047,9 @@ var isWindows = process.platform === 'win32' ||
     process.env.OSTYPE === 'cygwin' ||
     process.env.OSTYPE === 'msys'
 
-var path = __nested_webpack_require_358053__(622)
+var path = __webpack_require__(622)
 var COLON = isWindows ? ';' : ':'
-var isexe = __nested_webpack_require_358053__(742)
+var isexe = __webpack_require__(742)
 
 function getNotFoundError (cmd) {
   var er = new Error('not found: ' + cmd)
@@ -8339,12 +8190,12 @@ module.exports = /^#!.*/;
 /***/ }),
 
 /***/ 818:
-/***/ (function(module, __unusedexports, __nested_webpack_require_361435__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = isexe
 isexe.sync = sync
 
-var fs = __nested_webpack_require_361435__(747)
+var fs = __webpack_require__(747)
 
 function checkPathExt (path, options) {
   var pathext = options.pathExt !== undefined ?
@@ -8390,24 +8241,24 @@ function sync (path, options) {
 /***/ 835:
 /***/ (function(module) {
 
-module.exports = __nested_webpack_require_1849__(835);
+module.exports = require("url");
 
 /***/ }),
 
 /***/ 850:
-/***/ (function(module, __unusedexports, __nested_webpack_require_362508__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = paginationMethodsPlugin
 
 function paginationMethodsPlugin (octokit) {
-  octokit.getFirstPage = __nested_webpack_require_362508__(777).bind(null, octokit)
-  octokit.getLastPage = __nested_webpack_require_362508__(649).bind(null, octokit)
-  octokit.getNextPage = __nested_webpack_require_362508__(550).bind(null, octokit)
-  octokit.getPreviousPage = __nested_webpack_require_362508__(563).bind(null, octokit)
-  octokit.hasFirstPage = __nested_webpack_require_362508__(536)
-  octokit.hasLastPage = __nested_webpack_require_362508__(336)
-  octokit.hasNextPage = __nested_webpack_require_362508__(929)
-  octokit.hasPreviousPage = __nested_webpack_require_362508__(558)
+  octokit.getFirstPage = __webpack_require__(777).bind(null, octokit)
+  octokit.getLastPage = __webpack_require__(649).bind(null, octokit)
+  octokit.getNextPage = __webpack_require__(550).bind(null, octokit)
+  octokit.getPreviousPage = __webpack_require__(563).bind(null, octokit)
+  octokit.hasFirstPage = __webpack_require__(536)
+  octokit.hasLastPage = __webpack_require__(336)
+  octokit.hasNextPage = __webpack_require__(929)
+  octokit.hasPreviousPage = __webpack_require__(558)
 }
 
 
@@ -9352,11 +9203,11 @@ module.exports = get;
 /***/ }),
 
 /***/ 855:
-/***/ (function(module, __unusedexports, __nested_webpack_require_386617__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = registerPlugin;
 
-const factory = __nested_webpack_require_386617__(47);
+const factory = __webpack_require__(47);
 
 function registerPlugin(plugins, pluginFunction) {
   return factory(
@@ -9368,13 +9219,13 @@ function registerPlugin(plugins, pluginFunction) {
 /***/ }),
 
 /***/ 863:
-/***/ (function(module, __unusedexports, __nested_webpack_require_386938__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = authenticationBeforeRequest;
 
-const btoa = __nested_webpack_require_386938__(675);
+const btoa = __webpack_require__(675);
 
-const withAuthorizationPrefix = __nested_webpack_require_386938__(143);
+const withAuthorizationPrefix = __webpack_require__(143);
 
 function authenticationBeforeRequest(state, options) {
   if (typeof state.auth === "string") {
@@ -9440,11 +9291,11 @@ function authenticationBeforeRequest(state, options) {
 /***/ }),
 
 /***/ 866:
-/***/ (function(module, __unusedexports, __nested_webpack_require_389465__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 "use strict";
 
-var shebangRegex = __nested_webpack_require_389465__(816);
+var shebangRegex = __webpack_require__(816);
 
 module.exports = function (str) {
 	var match = str.match(shebangRegex);
@@ -10531,15 +10382,15 @@ module.exports = set;
 /***/ }),
 
 /***/ 898:
-/***/ (function(__unusedmodule, exports, __nested_webpack_require_416715__) {
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var request = __nested_webpack_require_416715__(753);
-var universalUserAgent = __nested_webpack_require_416715__(796);
+var request = __webpack_require__(753);
+var universalUserAgent = __webpack_require__(796);
 
 const VERSION = "4.3.1";
 
@@ -10624,11 +10475,11 @@ exports.withCustomRequest = withCustomRequest;
 /***/ }),
 
 /***/ 899:
-/***/ (function(module, __unusedexports, __nested_webpack_require_418977__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = registerEndpoints;
 
-const { Deprecation } = __nested_webpack_require_418977__(692);
+const { Deprecation } = __webpack_require__(692);
 
 function registerEndpoints(octokit, routes) {
   Object.keys(routes).forEach(namespaceName => {
@@ -10729,12 +10580,12 @@ function patchForDeprecation(octokit, apiOptions, method, methodName) {
 /***/ }),
 
 /***/ 929:
-/***/ (function(module, __unusedexports, __nested_webpack_require_421935__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 module.exports = hasNextPage
 
-const deprecate = __nested_webpack_require_421935__(370)
-const getPageLinks = __nested_webpack_require_421935__(577)
+const deprecate = __webpack_require__(370)
+const getPageLinks = __webpack_require__(577)
 
 function hasNextPage (link) {
   deprecate(`octokit.hasNextPage() – You can use octokit.paginate or async iterators instead: https://github.com/octokit/rest.js#pagination.`)
@@ -10792,21 +10643,21 @@ function validateAuth(auth) {
 /***/ }),
 
 /***/ 955:
-/***/ (function(module, __unusedexports, __nested_webpack_require_423114__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 "use strict";
 
-const path = __nested_webpack_require_423114__(622);
-const childProcess = __nested_webpack_require_423114__(129);
-const crossSpawn = __nested_webpack_require_423114__(20);
-const stripEof = __nested_webpack_require_423114__(768);
-const npmRunPath = __nested_webpack_require_423114__(621);
-const isStream = __nested_webpack_require_423114__(323);
-const _getStream = __nested_webpack_require_423114__(145);
-const pFinally = __nested_webpack_require_423114__(697);
-const onExit = __nested_webpack_require_423114__(260);
-const errname = __nested_webpack_require_423114__(427);
-const stdio = __nested_webpack_require_423114__(168);
+const path = __webpack_require__(622);
+const childProcess = __webpack_require__(129);
+const crossSpawn = __webpack_require__(20);
+const stripEof = __webpack_require__(768);
+const npmRunPath = __webpack_require__(621);
+const isStream = __webpack_require__(323);
+const _getStream = __webpack_require__(145);
+const pFinally = __webpack_require__(697);
+const onExit = __webpack_require__(260);
+const errname = __webpack_require__(427);
+const stdio = __webpack_require__(168);
 
 const TEN_MEGABYTES = 1000 * 1000 * 10;
 
@@ -11161,11 +11012,11 @@ module.exports.shellSync = (cmd, opts) => handleShell(module.exports.sync, cmd, 
 /***/ }),
 
 /***/ 966:
-/***/ (function(module, __unusedexports, __nested_webpack_require_430910__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
 "use strict";
 
-const {PassThrough} = __nested_webpack_require_430910__(413);
+const {PassThrough} = __webpack_require__(413);
 
 module.exports = options => {
 	options = Object.assign({}, options);
@@ -11220,9 +11071,9 @@ module.exports = options => {
 /***/ }),
 
 /***/ 969:
-/***/ (function(module, __unusedexports, __nested_webpack_require_431848__) {
+/***/ (function(module, __unusedexports, __webpack_require__) {
 
-var wrappy = __nested_webpack_require_431848__(11)
+var wrappy = __webpack_require__(11)
 module.exports = wrappy(once)
 module.exports.strict = wrappy(onceStrict)
 
@@ -11265,112 +11116,6 @@ function onceStrict (fn) {
   return f
 }
 
-
-/***/ })
-
-/******/ });
-
-/***/ }),
-
-/***/ 605:
-/***/ (function(module) {
-
-module.exports = __webpack_require__(605);
-
-/***/ }),
-
-/***/ 614:
-/***/ (function(module) {
-
-module.exports = __webpack_require__(614);
-
-/***/ }),
-
-/***/ 622:
-/***/ (function(module) {
-
-module.exports = __webpack_require__(622);
-
-/***/ }),
-
-/***/ 669:
-/***/ (function(module) {
-
-module.exports = __webpack_require__(669);
-
-/***/ }),
-
-/***/ 747:
-/***/ (function(module) {
-
-module.exports = __webpack_require__(747);
-
-/***/ }),
-
-/***/ 761:
-/***/ (function(module) {
-
-module.exports = __webpack_require__(761);
-
-/***/ }),
-
-/***/ 835:
-/***/ (function(module) {
-
-module.exports = __webpack_require__(835);
-
-/***/ })
-
-/******/ });
-
-/***/ }),
-
-/***/ 605:
-/***/ (function(module) {
-
-module.exports = require("http");
-
-/***/ }),
-
-/***/ 614:
-/***/ (function(module) {
-
-module.exports = require("events");
-
-/***/ }),
-
-/***/ 622:
-/***/ (function(module) {
-
-module.exports = require("path");
-
-/***/ }),
-
-/***/ 669:
-/***/ (function(module) {
-
-module.exports = require("util");
-
-/***/ }),
-
-/***/ 747:
-/***/ (function(module) {
-
-module.exports = require("fs");
-
-/***/ }),
-
-/***/ 761:
-/***/ (function(module) {
-
-module.exports = require("zlib");
-
-/***/ }),
-
-/***/ 835:
-/***/ (function(module) {
-
-module.exports = require("url");
 
 /***/ })
 
