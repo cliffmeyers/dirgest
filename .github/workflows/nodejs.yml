@@ -1,9 +1,10 @@
-name: Node CI
+name: Pipeline
 
-on: [push]
+on:
+  push:
 
 jobs:
-  build:
+  ci:
 
     runs-on: ubuntu-latest
 
@@ -24,6 +25,31 @@ jobs:
         npm test
       env:
         CI: true
-    - name: publish + release
-      run: echo hello
+
+  publish:
+    needs: ci
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - name: testing
+      run: |
+        echo testing
+        echo "$GITHUB_CONTEXT"
+        echo "$JOB_CONTEXT"
+        echo "$STEPS_CONTEXT"
+        echo "$RUNNER_CONTEXT"
+        echo "$STRATEGY_CONTEXT"
+        echo "$MATRIX_CONTEXT"
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+        JOB_CONTEXT: ${{ toJson(job) }}
+        STEPS_CONTEXT: ${{ toJson(steps) }}
+        RUNNER_CONTEXT: ${{ toJson(runner) }}
+        STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        MATRIX_CONTEXT: ${{ toJson(matrix) }}
 
