@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Hello world action step
-      uses: ./
+      uses: ./github/actions
       id: get-pr-labels
       with:
         who-to-greet: 'Cliff'
