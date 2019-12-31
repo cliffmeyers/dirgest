@@ -1,9 +1,10 @@
-name: Node CI
+name: Pipeline
 
-on: [push]
+on:
+  push:
 
 jobs:
-  build:
+  ci:
 
     runs-on: ubuntu-latest
 
@@ -13,6 +14,27 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: debug
+      run: |
+        echo "$GITHUB_CONTEXT"
+        echo "$JOB_CONTEXT"
+        echo "$STEPS_CONTEXT"
+        echo "$RUNNER_CONTEXT"
+        echo "$STRATEGY_CONTEXT"
+        echo "$MATRIX_CONTEXT"
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+        JOB_CONTEXT: ${{ toJson(job) }}
+        STEPS_CONTEXT: ${{ toJson(steps) }}
+        RUNNER_CONTEXT: ${{ toJson(runner) }}
+        STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        MATRIX_CONTEXT: ${{ toJson(matrix) }}
+    - name: Hello world action step
+      uses: ./.github/actions/get-pr-labels
+      id: get-pr-labels
+      with:
+        github-token: ${GITHUB_TOKEN}
+        who-to-greet: 'Cliff'
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -22,6 +44,20 @@ jobs:
         npm ci
         npm run build
         npm test
-
       env:
         CI: true
+
+  publish:
+    needs: ci
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/develop'
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - name: fake publish
+      run: |
+        echo fake publish
